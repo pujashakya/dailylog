@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  daiper_change_date: 2019-03-18 15:23:36
+  change_type: MyString
+  notes: MyString
+
+two:
+  daiper_change_date: 2019-03-18 15:23:36
+  change_type: MyString
+  notes: MyString

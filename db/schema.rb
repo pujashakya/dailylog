@@ -10,10 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190315143540) do
+ActiveRecord::Schema.define(version: 20190322182121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "diaper_entries", force: :cascade do |t|
+    t.datetime "daiper_change_date"
+    t.string   "change_type"
+    t.string   "notes"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  create_table "food_entries", force: :cascade do |t|
+    t.datetime "fed_date"
+    t.string   "amount"
+    t.string   "notes"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "food_type"
+    t.integer  "food_type_id"
+  end
+
+  create_table "food_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "foods", force: :cascade do |t|
+    t.datetime "feed_date"
+    t.string   "amount"
+    t.string   "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "naps", force: :cascade do |t|
+    t.datetime "nap_date"
+    t.decimal  "duration"
+    t.string   "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"

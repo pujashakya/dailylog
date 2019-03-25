@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nap date:</strong>
+  <%= @nap.nap_date %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @nap.duration %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @nap.notes %>
+</p>
+
+<%= link_to 'Edit', edit_nap_path(@nap) %> |
+<%= link_to 'Back', naps_path %>

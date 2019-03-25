@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nap_date: 2019-03-18 15:53:26
+  duration: 
+  notes: MyString
+
+two:
+  nap_date: 2019-03-18 15:53:26
+  duration: 
+  notes: MyString

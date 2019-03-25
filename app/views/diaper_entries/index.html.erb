@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Diaper Entries</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Daiper change date</th>
+      <th>Change type</th>
+      <th>Notes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @diaper_entries.each do |diaper_entry| %>
+      <tr>
+        <td><%= diaper_entry.daiper_change_date %></td>
+        <td><%= diaper_entry.change_type %></td>
+        <td><%= diaper_entry.notes %></td>
+        <td><%= link_to 'Edit', edit_diaper_entry_path(diaper_entry) %></td>
+        <td><%= link_to 'Delete', diaper_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add Diaper Entry', new_diaper_entry_path, class: "btn btn-primary"%>

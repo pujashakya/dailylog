@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Fed date:</strong>
+  <%= @food_entry.fed_date %>
+</p>
+
+<p>
+  <strong>Food Type:</strong>
+  <%= @food_entry.food_type %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @food_entry.amount %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @food_entry.notes %>
+</p>
+
+<%= link_to 'Edit', edit_food_entry_path(@food_entry) %> |
+<%= link_to 'Back', food_entries_path %>

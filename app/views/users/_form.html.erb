@@ -12,21 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
+    <%= f.label :first_name  %>
+    <%= f.text_field :first_name, class:"form-control input-lg" ,type:"text" ,required:true%>
   </div>
 
-  <div class="field">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
+  <div class="form-group">
+    <%= f.label :last_name  %>
+    <%= f.text_field :last_name , class:"form-control input-lg" ,required:true%>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.text_field :email , class:"form-control input-lg" ,type:"email",required:true%>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class:"btn btn-primary"%>
   </div>
 <% end %>

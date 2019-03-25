@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fed_date: 2019-03-18 11:44:34
+  amount: MyString
+  notes: MyString
+
+two:
+  fed_date: 2019-03-18 11:44:34
+  amount: MyString
+  notes: MyString

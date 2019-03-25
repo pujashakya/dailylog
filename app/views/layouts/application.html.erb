@@ -4,11 +4,64 @@
     <title>Dailylog</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
-    <%= yield %>
+
+<div class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar" class="navbar-light bg-light">
+        <div class="sidebar-header">
+        </div>
+
+        <ul class="list-unstyled components ">
+            <li>
+               <%= link_to 'User', users_path, class: "alert alert-primary list-group-item ", :role=>"alert"%>
+            </li>
+            <li>
+                <%= link_to 'Food', food_entries_path, class:  "alert alert-primary list-group-item", :role=>"alert"%>
+            </li>
+            <li>
+               <%= link_to 'Diaper', diaper_entries_path, class: "alert alert-primary list-group-item", :role=>"alert"%>
+                
+            </li>
+            <li>
+               <%= link_to 'Nap', naps_path, class: "alert alert-primary list-group-item", :role=>"alert"%>
+            </li>
+            <li>
+            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle alert alert-primary list-group-item">Reports</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <%= link_to 'Nap Reports', naps_path, class: "alert alert-primary list-group-item", :role=>"alert"%>
+                    </li>
+                    <li>
+                         <%= link_to 'Food Report', food_entries_path, class:  "alert alert-primary list-group-item", :role=>"alert"%>
+                    </li>
+                    <li>
+                        <%= link_to 'User Reports', users_path, class: "alert alert-primary list-group-item ", :role=>"alert"%>
+                    </li>
+                </ul>
+            </li>
+            </li>
+            
+        </ul>
+    </nav>
+ <!-- Page Content -->
+    <div id="content">
+        <div class="container">
+        <%= yield %>
+
+        </div>
+   </div> 
+
+
+
+</div>
+
+
+
+
   </body>
 </html>

@@ -1,0 +1,37 @@
+<%= form_for(food_entry) do |f| %>
+  <% if food_entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(food_entry.errors.count, "error") %> prohibited this food_entry from being saved:</h2>
+
+      <ul>
+      <% food_entry.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :fed_date %>
+    <%= f.datetime_select :fed_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :food_type %>
+    <%= f.select :food_type_id, option_for_food_types_select, { :include_blank => 'Please select category'},class:'dropdown btn-secondary dropdown-toggle'%>
+  </div>
+
+  <div class="field">
+    <%= f.label :amount %>
+    <%= f.text_field :amount,class:'form-control input-lg', required:true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :notes %>
+    <%= f.text_field :notes,class:'form-control input-lg' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class:'btn btn-primary' %>
+  </div>
+<% end %>

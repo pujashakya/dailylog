@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+
+/*.navbar-inverse {
+    background-color: blue!important;
+        border-color: blue!important;
+        z-index: 2 !important;
+ }*/
+
+ .wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}

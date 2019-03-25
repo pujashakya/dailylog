@@ -1,0 +1,32 @@
+<%= form_for(diaper_entry) do |f| %>
+  <% if diaper_entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(diaper_entry.errors.count, "error") %> prohibited this diaper_entry from being saved:</h2>
+
+      <ul>
+      <% diaper_entry.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :daiper_change_date %>
+    <%= f.datetime_select :daiper_change_date, class:"form-control input-lg", required:true%>
+  </div>
+
+  <div class="field">
+    <%= f.label :change_type %>
+    <%= f.text_field :change_type,class:"form-control input-lg", required:true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :notes %>
+    <%= f.text_field :notes,class:"form-control input-lg", required:true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class:"btn btn-primary"%>
+  </div>
+<% end %>

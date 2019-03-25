@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Naps</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nap date</th>
+      <th>Duration</th>
+      <th>Notes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @naps.each do |nap| %>
+      <tr>
+        <td><%= nap.nap_date %></td>
+        <td><%= nap.duration %></td>
+        <td><%= nap.notes %></td>
+        <td><%= link_to 'Edit', edit_nap_path(nap) %></td>
+        <td><%= link_to 'Delete', nap, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add Nap', new_nap_path, class:"btn btn-primary" %>

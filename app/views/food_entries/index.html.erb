@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+  
+<h1>Food Entries</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Fed date</th>
+      <th>FoodType</th>
+      <th>Amount</th>
+      <th>Notes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @food_entries.each do |food_entry| %>
+      <tr>
+        <td><%= food_entry.fed_date %></td>
+        <td><%= get_food_type_name(food_entry.food_type_id) %></td>
+        <td><%= food_entry.amount %></td>
+        <td><%= food_entry.notes %></td>
+        <td><%= link_to 'Edit', edit_food_entry_path(food_entry) %></td>
+        <td><%= link_to 'Delete', food_entry,class: "btn btn-primary", method: :delete, data: { confirm: 'Are you sure?' }%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add Food Entry', new_food_entry_path, class: "btn btn-primary" %>
+
+<center><%= flash[:notice] %></center>
+
