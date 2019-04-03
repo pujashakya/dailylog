@@ -15,8 +15,8 @@ jobs:
 
       - image: postgres:9.5
         environment:
-          POSTGRES_USER: r3
-          POSTGRES_DB: r3_circle_ci
+          POSTGRES_USER: dailylog
+          POSTGRES_DB: dailylog_circle_ci
           POSTGRES_PASSWORD: ""
 
       # Specify service dependencies here if necessary
@@ -25,7 +25,9 @@ jobs:
       # - image: circleci/postgres:9.4
 
     working_directory: ~/dailylog
-
+    environment:
+      DEFAULT_URL: localhost:3000
+      
     steps:
       - checkout
 
@@ -51,19 +53,19 @@ jobs:
       - run: bundle exec rake db:schema:load
 
       # run tests!
-      - run:
-          name: run tests
-          command: |
-            mkdir /tmp/test-results
-            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
-              circleci tests split --split-by=timings)"
+      # - run:
+      #     name: run tests
+      #     command: |
+      #       mkdir /tmp/test-results
+      #       TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+      #         circleci tests split --split-by=timings)"
 
-            bundle exec rspec \
-              --format progress \
-              --format RspecJunitFormatter \
-              --out /tmp/test-results/rspec.xml \
-              --format progress \
-              $TEST_FILES
+      #       bundle exec rspec \
+      #         --format progress \
+      #         --format RspecJunitFormatter \
+      #         --out /tmp/test-results/rspec.xml \
+      #         --format progress \
+      #         $TEST_FILES
 
       # collect reports
       - store_test_results:
