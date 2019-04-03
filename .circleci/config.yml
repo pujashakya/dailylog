@@ -27,7 +27,7 @@ jobs:
     working_directory: ~/dailylog
     environment:
       DEFAULT_URL: localhost:3000
-      
+
     steps:
       - checkout
 
@@ -49,6 +49,7 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       # Database setup
+      - run: cp config/database.yml.ci config/database.yml
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
