@@ -38,10 +38,10 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      # - run:
-      #     name: install dependencies
-      #     command: |
-      #       bundle install --path vendor/bundle
+      - run:
+          name: install dependencies
+          command: |
+            bundle install
 
       # - save_cache:
       #     paths:
