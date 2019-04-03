@@ -8,6 +8,16 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/ruby:2.3
+        environment:
+          PGHOST: localhost
+          PGUSER: dailylog
+          RAILS_ENV: test
+
+      - image: postgres:9.5
+        environment:
+          POSTGRES_USER: r3
+          POSTGRES_DB: r3_circle_ci
+          POSTGRES_PASSWORD: ""
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
