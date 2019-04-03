@@ -48,7 +48,7 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
-      # Database setup
+      # Database setup we need to copy the config because without it by default it assumes the db is sqlite
       - run: cp config/database.yml.ci config/database.yml
       - run: bundle exec rake db:drop
       - run: bundle exec rake db:create
@@ -56,9 +56,9 @@ jobs:
 
       # run tests!
       # Change to rspec if you are using rspec
-      - run:
-          name: run rspec
-          command: bundle exec rspec
+      # - run:
+      #     name: run rspec
+      #     command: bundle exec rspec
 
       # collect reports
       - store_test_results:
