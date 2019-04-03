@@ -27,7 +27,7 @@ jobs:
     working_directory: ~/dailylog
     environment:
       DEFAULT_URL: localhost:3000
-
+      
     steps:
       - checkout
 
@@ -41,12 +41,12 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            bundle install
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
 
-      # - save_cache:
-      #     paths:
-      #       - ./vendor/bundle
-      #     key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       # Database setup
       - run: bundle exec rake db:create
