@@ -51,6 +51,22 @@ class NapsController < ApplicationController
     end
   end
 
+
+def report
+
+@naplist=Nap.all
+end
+
+def exportcsv
+  # byebug
+# @naplist1 = params[:naplist]
+@naplist1=Nap.all
+    respond_to do |format|
+      # format.csv { send_data Nap.as_csv(@naplist1), filename: "Naplist-#{Date.today}.csv"}
+      format.csv { send_data @naplist1.to_csv, filename: "Naplist-#{Date.today}.csv"}
+    end
+end
+
   # DELETE /naps/1
   # DELETE /naps/1.json
   def destroy

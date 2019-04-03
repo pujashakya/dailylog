@@ -25,16 +25,15 @@
             </li>
             <li>
                <%= link_to 'Diaper', diaper_entries_path, class: "alert alert-primary list-group-item", :role=>"alert"%>
-                
             </li>
             <li>
                <%= link_to 'Nap', naps_path, class: "alert alert-primary list-group-item", :role=>"alert"%>
             </li>
             <li>
             <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle alert alert-primary list-group-item">Reports</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
+                <ul class="list-unstyled" id="pageSubmenu">
                     <li>
-                        <%= link_to 'Nap Reports', naps_path, class: "alert alert-primary list-group-item", :role=>"alert"%>
+                        <%= link_to 'Nap Reports', napreport_path, class: "alert alert-primary list-group-item", :role=>"alert"%>
                     </li>
                     <li>
                          <%= link_to 'Food Report', food_entries_path, class:  "alert alert-primary list-group-item", :role=>"alert"%>
